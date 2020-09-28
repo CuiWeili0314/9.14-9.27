@@ -1,0 +1,219 @@
+a<-c(1,2,3,4,5,6,7)
+b<-c("one","two","three")
+c<-c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE)
+a<-c("f","s","e","g","h","q")
+a[3]
+a[c(1,3,5)]
+a[2:6]
+y<-matrix(1:20,nrow=5,ncol=4)
+y
+cells<-c(1,24,23,13)
+rnames<-c("r1","r2")
+cnames<-c("c1","c2")
+mymatrix<-matrix(cells,nrow=2,ncol=2,byrow=TRUE,
+dimnames=list(rnames,cnames))
+mymatrix
+mymatrix<-matrix(cells,nrow=2,ncol=2,byrow=FALSE,
+dimnames=list(rnames,cnames))
+mymatrix
+x<-matrix(1:10,nrow=2)
+x
+x[2,]
+x[,2]
+x[1,4]
+x[1,c(4,5)]
+dim1<-c("A1","A2")
+dim2<-c("B1","B2","B3")
+dim3<-c("C1","C2","C3","C4")
+z<-array(1:24,c(2,3,4),dimnames=list(dim1,dim2,dim3))
+z
+patientID<-c(1,2,3,4)
+age<-c(25,34,28,52)
+diabetes<-c("type1","type2","type1","type1")
+status<-c("poor","improved","excellent","poor")
+diabetes<-factor(diabetes)
+status<-factor(status,order=TRUE,levels=c("poor","improved","excellent"))
+patientdata<-data.frame(patientID,age,diabetes,status)
+str(patientdata)
+summary(patientdata)
+g<-"my first list"
+h<-c(12,23,1,34)
+j<-matrix(1:10,nrow=5)
+k<-c("one","two","three")
+mylist<-list(title=g,ages=h,j,k)
+mylist
+mylist[[2]]
+mylist[["ages"]]
+mylist[[3]]
+mydata<-data.frame(age=numeric(0),gender=character(0),weight=numeric(0))
+mydata<-edit(mydata)
+mydata<-edit(mydata)
+fix(mydata)
+mydatatxt<-"age gender weight 
+25 m 166
+30 f 115
+18 f 120"
+mydata<-read.table(header=	TRUE,text=mydatatxt)
+mydataframe<-read.table(file,options)
+grades<-read.table("C://Users//86177//Desktop//student.txt",header=TRUE,row.names="studentID",sep=",")
+patientdata$gender<-factor(patientdata$gender,
+levels=c(1,2),
+lables=c("male","female"))
+attach(mtcars)
+plot(wt,mpg)
+abline(lm(mpg~wt))
+title("regression of mpg on weight")
+detach(mtcars)
+pdf("mygraph.pdf")
+attach(mtcars)
+plot(wt,mpg)
+abline(lm(mpg~wt))
+title("regression of mpg on weight")
+detach(mtcars)
+dev.off()
+dose<-c(20,30,40,45,60)
+druga<-c(16,20,27,40,60)
+drugb<-c(15,18,25,31,40)
+plot(dose,druga,type="b")
+opar<-par(no.readonly=TRUE)
+par(lty=2,pch=17)
+plot(dose,druga,type="b")
+par(opar)
+plot(dose,druga,type="b",lty=2,pch=17)
+plot(dose,druga,type="b",lty=3,lwd=3,pch=15,cex=2)
+rainbow(10)
+install.packages("RColorBrewer")
+n<-7
+mycolors<-brewer.pal(n,"Set1")
+barplot(rep(1,n),col=mycolors)
+n<-10
+mycolors<-rainbow(n)
+pie(rep(1,n),labels=mycolors,col=mycolors)
+mygrays<-gray(0:n/n)
+pie(rep(1,n),labels=mygrays,col=mygrays)
+par(font.lab=3,cex.lab=1.5,font.main=4,cex.main=2)
+windowsFonts(
+A=windowsFont("Arial Black"),
+B=windowsFont("Bookman Old Style"),
+C=windowsFont("Comic Sans MS"))
+par(pin=c(4,3),mai(1,5,1,2))
+dose<-c(20,30,40,45,60)
+druga<-c(16,20,27,40,60)
+drugb<-c(15,18,25,31,40)
+opar<-par(no.readonly=TRUE)
+par(pin=c(2,3))
+par(lwd=2,cex=1.5)
+par(cex.axis=0.75,font.axis=3)
+plot(dose,druga,type="b",pch=19,lty=2,col="red")
+plot(dose,drugb,type="b",pch=23,lty=6,col="blue",bg="green")
+par(opar)
+dose<-c(20,30,40,45,60)
+druga<-c(16,20,27,40,60)
+drugb<-c(15,18,25,31,40)
+plot(dose,druga,type="b",
+col="red",lty=2,pch=2,lwd=2,
+ann=FALSE,
+main="clinical trials for druga",
+sub="this is hypothetical data",
+xlab="dosage",ylab="drug response",
+xlim=c(0,60),ylim=c(0,70))
+title(main="main title", sub="subtitle",
+xlab="x label", ylab="y lable")
+title(main="my title", col.main="red",
+sub="my subtitle", col.sub="blue",
+xlab="my a lable",ylab="my y lable",
+col.lab="green", cex.lab=0.75)
+x<-c(1:10)
+y<-x
+z<-10/x
+opar<-par(no.readonly=TRUE)
+par(mar=c(5,4,4,8)+0.1)
+plot(x,y,type="b",
+pch=21,col="red",
+yaxt="n",lty=3,ann=FALSE)
+lines(x,z,type="b",pch=22,col="blue",lty=2)
+axis(2,at=x,labels=x,col.axis="red",las=2)
+axis(4,at=z,labels=round(z,digits=2),
+col.axis="blue",las=2,cex.axis=0.7,tck=-0.01)
+mtext("y=1/x",side=4,line=3,cex.lab=1,las=2,col="blue")
+title("an example of creative axes",
+xlab="x values",
+ylab="y=x")
+abline(y=c(1,5,7),x=seq(1,10,2),lty=2,col="blue")
+dose<-c(20,30,40,45,60)
+druga<-c(16,20,27,40,60)
+drugb<-c(15,18,25,31,40)
+opar<-par(no.readonly=TRUE)
+par(lwd=2,cex=1.5,font.lab=2)
+plot(dose,druga,type="b",
+pch=15,lty=1,col="red",ylim=c(0,60),
+main="drug A vs. durg B",
+xlab="drug dosage",ylab="drug response")
+lines(dose,drugb,type="b",
+pch=17,lty=2,col="blue")
+abline(h=c(30),lwd=1.5,lty=2,col="gray")
+install.packages("Hmisc")
+library(Hmisc)
+minor.tick(nx=3,ny=3,tick.ratio=0.5)
+legend("topleft",inset=0.05,title="drug type",c("A","B"),
+lty=(1,2),pch=c(15,17),col=c("red","blue"))
+attach(mtcars)
+plot(wt,mpg,main="mileage vs. car weight",
+pch=18,col="blue")
+text(wt,mpg,rownames(mtcars),
+cex=0.6,pos=4,col="red")
+detach(mtcars)
+opar<-par(no.readonly=TRUE)
+par(cex=1.5)
+plot(1:7,1:7,type="n")
+text(3,3,"example of default text")
+text(4,4,family="mono","example of mono text")
+text(5,5,family="serif","example of serif text")
+par(opar)
+attach(mtcars)
+opar<-par(no.readonly=TRUE)
+par(mfrow=c(2,2))
+plot(wt,mpg,main="s vs.mpg")
+plot(wt,disp,main="s vs.disp")
+hist(wt,main="histogram of wt")
+boxplot(wt,main="boxplot of wt")
+par(opar)
+detach(mtcars)
+attach(mtcars)
+opar<-par(no.readonly=TRUE)
+par(mfrow=c(3,1))
+hist(wt)
+hist(mpg)
+hist(disp)
+par(opar)
+detach(mtcars)
+attach(mtcars)
+layout(matrix(c(1,1,2,3),2,2,byrow=TRUE),
+widths=c(3,1),heights=c(1,2))
+hist(wt)
+hist(mpg)
+hist(disp)
+detach(mtcars)
+opar<-par(no.readonly=TRUE)
+par(fig=c(0,0.8,0,0.8))
+attach(mtcars)
+plot(wt,mpg,xlab="m p g",ylab="car weight")
+par(fig=c(0,0.8,0.55,1),new=TRUE)
+boxplot(wt,horizontal=TRUE,axes=FALSE)
+par(fig=c(0.65,1,0,0.8),new=TRUE)
+boxplot(mpg,axes=FALSE)
+mtext("Enhanced Sactterplot",side=3,outer=TRUE,line=-3)
+par(opar)
+date<-c("10/24/08","10/28/08","10/01/08","10/12/14","05/01/14")
+manager<-c(1,2,3,4,5)
+country<-c("US","US","UK","UK","UK")
+gender<-c("M","F","F","M","F")
+age<-c(32,45,34,25,99)
+q1<-c(5,4,5,5,5)
+q2<-c(4,5,5,3,2)
+q3<-c(5,2,5,4,1)
+q4<-c(5,5,5,NA,2)
+q5<-c(5,5,2,NA,1)
+leadership<-data.frame(manager,date,country,gender,age,q1,q2,q3,q4,q5,
+stringsAsFactors=FALSE)
+leadership
